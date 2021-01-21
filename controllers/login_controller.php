@@ -9,9 +9,9 @@ if($validateFields == true){
 
     if($loginModel->validateUser() == true){
 
- echo $_POST['name'];
+        $loginModel->setUserSession();
 
-    header("Location:../index.php?r=ok&u={$_POST['name']}"); 
+         header("Location:../index.php?r=ok&u={$_POST['name']}"); 
 
 } else {
     header("Location:../index.php?r=error"); 

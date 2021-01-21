@@ -19,12 +19,34 @@ if(isset($_GET['r'])){
       </div>";
       
       } else if ($_GET['r'] == 'ok' ) {
+
+         if($_SESSION['gender']== "F"){
+
+            echo "<div>
+      
+            <p style='color:green'>Bienvenida {$_SESSION['name']} {$_SESSION['lastname']} </p>
+            
+            </div>";
+
+         } else if ($_SESSION['gender']== "M"){
+            echo "<div>
+      
+            <p style='color:green'>Bienvenido {$_SESSION['name']} {$_SESSION['lastname']} </p>
+            
+            </div>";
+
+
+
+         } else {
+            echo "<div>
+      
+            <p style='color:green'>Bienvenidx {$_SESSION['name']} {$_SESSION['lastname']} </p>
+            
+            </div>";
+            
+         }
      
-         echo "<div>
-      
-      <p style='color:green'>Bienvenido {$_GET['u']} </p>
-      
-      </div>";
+        
          
       }else{
      
@@ -39,5 +61,6 @@ if(isset($_GET['r'])){
         
 
 }
+
  ?>
  

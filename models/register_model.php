@@ -35,7 +35,7 @@ class RegisterModel{
     
     || $_POST['user'] == '' 
     
-    || $_POST['pass'] == ''  ){
+    || $_POST['pass'] == ''   ){
 
 return true;
 }
@@ -47,8 +47,9 @@ else {
 
 
     public function registerUser(){
-        
-        $count = DatabaseModel::database_connect()->exec("INSERT INTO users VALUES (NULL,'{$_POST['user']}','{$_POST['pass']}')");    
+        $passwordHashed = sha1($_POST['pass']);
+
+        $count = DatabaseModel::database_connect()->exec("INSERT INTO users VALUES (NULL,'{$_POST['user']}','{$passwordHashed}')");    
         $query = DatabaseModel::database_connect()->query("SELECT id from users WHERE username='{$_POST['user']}'");
     
    
@@ -62,7 +63,7 @@ else {
         
         if($count == 1){
 
-            $count = DatabaseModel::database_connect()->exec("INSERT INTO customers VALUES (NULL,'{$_POST['fname']}','{$_POST['lname']}','{$_POST['tel']}','{$_POST['date']}','{$this->userId['id']}')");
+            $count = DatabaseModel::database_connect()->exec("INSERT INTO customers VALUES (NULL,'{$_POST['fname']}','{$_POST['lname']}','{$_POST['tel']}','{$_POST['date']}','{$this->userId['id']}','{$_POST['gender']}')");
             
             return $count;
 }

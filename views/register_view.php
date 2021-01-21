@@ -9,6 +9,15 @@
   <label for="lname">Apellido</label><br>
   <input type="text" name="lname"><br>
 
+  <label for="lname">Genero </label><br>
+
+<select name="gender">
+  <option value="M">Masculino</option>
+  <option value="F">Femenino</option>
+  <option value="O">Otro</option>
+</select><br>   
+
+
   <label for="lname">Telefono</label><br>
   <input type="tel"  name="tel"><br>
 

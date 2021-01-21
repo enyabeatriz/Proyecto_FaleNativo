@@ -8,6 +8,9 @@
 <body>
    
     <?php
+    session_start();
+
+
 include "views/header_view.php";
    include "views/login_view.php";
     

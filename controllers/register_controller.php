@@ -5,18 +5,16 @@ include "../models/register_model.php";
 $registerModel = new RegisterModel;
 
 
-$checkUser = $registerModel->checkUser();
-$checkAllFields =$registerModel-> checkAllFields();
-$registerUser =$registerModel->registerUser();
 
-if($checkAllFields == true){
+
+if($registerModel-> checkAllFields() == true){
 
     header("Location:../views/register_view.php?v=empty"); 
 
 
 } else {
     
-if(count($checkUser) > 0){
+if(count($registerModel->checkUser()) > 0){
 
 
     echo "existe el usuario";
@@ -25,7 +23,7 @@ if(count($checkUser) > 0){
 
 } else {
 
-    if($registerUser > 0){
+    if($registerModel->registerUser() > 0){
 
      echo"se registro correctamente";
      header("Location:../views/register_view.php?v=ok"); 
