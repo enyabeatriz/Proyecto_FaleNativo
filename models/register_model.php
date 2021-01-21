@@ -48,8 +48,8 @@ else {
 
     public function registerUser(){
         $passwordHashed = sha1($_POST['pass']);
-
-        $count = DatabaseModel::database_connect()->exec("INSERT INTO users VALUES (NULL,'{$_POST['user']}','{$passwordHashed}')");    
+        $userLowerCase =strtolower($_POST['user']) ;
+        $count = DatabaseModel::database_connect()->exec("INSERT INTO users VALUES (NULL,'{$userLowerCase}','{$passwordHashed}')");    
         $query = DatabaseModel::database_connect()->query("SELECT id from users WHERE username='{$_POST['user']}'");
     
    

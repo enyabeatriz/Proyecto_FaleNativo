@@ -74,7 +74,7 @@ $userExists = false;
 foreach( $users as $user){
 
 
-if($user['username'] == $_POST['name'] && $user['password'] ==sha1($_POST['pass']) ){
+if($user['username'] == strtolower($_POST['name']) && $user['password'] ==sha1($_POST['pass']) ){
 
 $userExists = true;
 
